@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-
 def safe_print_division(a, b):
 
-    exista = "a" in locals()
-    existb = "b" in locals()
     yeehaw = ["try:", "except", "finally:"]
 
-    if exista == "False" or existb == "False" or a == 0 or b == 0:
+    if b == 0:
         print("Inside result: {}".format("None"))
         return "None"
 
