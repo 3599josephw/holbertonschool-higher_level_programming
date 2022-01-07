@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-for i in range(10):
-    print("{}".format(i), end=" ")
-for i in range(20):
-    print("{}".format(i), end=" ")
-print("{}".format("Hello World"))
+for i in range(0, 9):
+    for j in range(i + 1, 10):
+        if i < 8:
+            print("{:d}{:d}, ".format(i, j), end="")
+        elif i >= 8:
+            print("{:d}{:d}".format(i, j))
