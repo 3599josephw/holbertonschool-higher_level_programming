@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""Task 2
+"""
+
+
 class Square:
+    """Square
+    """
     def __init__(self, size=0):
         """Square class with size checks
 
