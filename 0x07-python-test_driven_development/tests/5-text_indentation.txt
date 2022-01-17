@@ -1,0 +1,50 @@
+importing text indentation function
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing
+
+passing a normal sentence into text
+    >>> text_indentation("This is a sentence.")
+    This is a sentence.
+    <BLANKLINE>
+
+passing an int into text
+    >>> text_indentation(3)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+a sentence with no periods
+    >>> text_indentation("This is a sentence")
+    This is a sentence
+
+a sentence with all three symbols
+    >>> text_indentation("Th:is is? a sen.tence.")
+    Th:
+    <BLANKLINE>
+    is is?
+    <BLANKLINE>
+    a sen.
+    <BLANKLINE>
+    tence.
+    <BLANKLINE>
+
+just a period
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
+
+just none
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+empty string
+    >>> text_indentation("")
+
+no arguments
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

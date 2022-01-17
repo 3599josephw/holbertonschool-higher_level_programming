@@ -1,0 +1,42 @@
+importing add_integer function
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Testing 
+
+5 + 5
+    >>> add_integer(5,5)
+    10
+
+5 - 5
+    >>> add_integer(5, -5)
+    0
+
+String passed into a
+    >>> add_integer("hello", 6)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+None passed into b
+    >>> add_integer(3, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+decimals
+    >>> add_integer(7.38, 2.1)
+    9
+
+missing one argument
+    >>> add_integer(5)
+    103
+
+Nan
+    >>> add_integer(float("nan"))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Float overflow
+    >>> add_integer(999999999999999999.5, 999999999999999999.5)
+    2000000000000000000
