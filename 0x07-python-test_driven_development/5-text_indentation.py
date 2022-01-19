@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Adds a newline character after every '.' '?' and ':'
+"""Adds in a newline character after every '.' '?' and ':'
 """
 
 
