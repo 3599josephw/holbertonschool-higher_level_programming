@@ -17,7 +17,8 @@ def text_indentation(text):
             new_str = new_str + text[i]
             new_str = new_str + "\n\n"
         else:
-            if (text[i - 1] in sep and text[i] == " ") or (text[i - 1] == " " and text[i] == " "):
+            if (text[i - 1] in sep and text[i] == " ") or \
+(text[i - 1] == " " and text[i] == " "):
                 pass
             else:
                 new_str = new_str + text[i]
