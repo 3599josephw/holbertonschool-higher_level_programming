@@ -1,0 +1,40 @@
+Import the BaseGeometry function
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Tests
+
+normal input
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", 59)
+
+area
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", 59)
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+negative int
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", -4)
+    Traceback (most recent call last):
+    ValueError: larry must be greater than 0
+
+string into value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", "the lobster")
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+nan
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", float('nan'))
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+inf
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", float('inf'))
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
