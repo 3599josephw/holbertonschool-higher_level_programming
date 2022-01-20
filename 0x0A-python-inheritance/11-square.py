@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Task 11 - Square #2
 """
-
-
 Rectangle = __import__('9-rectangle').Rectangle
+
+
 class Square(Rectangle):
     """Creates a Square with area() and str
     """
