@@ -38,3 +38,39 @@ inf
     >>> bg.integer_validator("larry", float('inf'))
     Traceback (most recent call last):
     TypeError: larry must be an integer
+
+decimal
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", 3.7)
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+zero
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", 0)
+    Traceback (most recent call last):
+    ValueError: larry must be greater than 0
+
+passing a list
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", [3, 5, 7])
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+one parameter
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry")
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+no parameter
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+none
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", None)
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
