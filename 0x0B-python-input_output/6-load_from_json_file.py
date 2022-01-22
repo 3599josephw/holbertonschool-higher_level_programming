@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 """Task 6 - Create object from a JSON file
 """
 import json
