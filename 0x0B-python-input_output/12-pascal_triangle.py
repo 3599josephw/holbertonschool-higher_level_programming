@@ -3,6 +3,8 @@
 
 
 def pascal_triangle(n):
+    """Creates a pascal triangle
+    """
     biglist = []
     if n <= 0:
         return biglist
