@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Task 7 - Load, add, save.
+"""Task 7 - Load, add, save
 """
 from os.path import exists
 import sys
