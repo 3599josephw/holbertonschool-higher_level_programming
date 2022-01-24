@@ -47,3 +47,10 @@ nan
     >>> my_list.append(4)
     >>> my_list.print_sorted()
     [nan, 4]
+
+__str__ check
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.append(4)
+    >>> print(my_list)
+    [5, 4]
