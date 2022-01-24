@@ -74,3 +74,21 @@ none
     >>> bg.integer_validator("larry", None)
     Traceback (most recent call last):
     TypeError: larry must be an integer
+
+Putting a comma with a number
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", (4,))
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+Boolean
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", (True))
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
+
+Dictionary
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("larry", {3, 4})
+    Traceback (most recent call last):
+    TypeError: larry must be an integer
