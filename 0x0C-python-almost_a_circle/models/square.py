@@ -18,7 +18,10 @@ class Square(Rectangle):
 
     # Update method for the object's attributes
     def update(self, *args, **kwargs):
-        if len(args) > 0:
+        flag = 0
+        if args is not None:
+            flag = 1
+        if len(args) > 0 and flag == 1:
             self.id = args[0]
             if len(args) >= 2:
                 self.size = args[1]
