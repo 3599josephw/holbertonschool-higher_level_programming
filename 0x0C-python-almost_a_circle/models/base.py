@@ -47,12 +47,19 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """Converts a json string into a list"""
+        if json_string is None:
+            return []
+        if len(json_string) == 0:
+            return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
         """Creates an object based on a given dictionary"""
-        dummy = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 
