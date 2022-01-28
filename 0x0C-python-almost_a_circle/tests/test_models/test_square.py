@@ -50,7 +50,7 @@ class TestSquare(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/square.py'])
         self.assertEqual(result.total_errors, 0,
-                             "Found code style errors (and warnings).")
+                         "Found code style errors (and warnings).")
 
     def test_pep8_test_base(self):
         """Test that tests/test_models/test_square.py is pep8 compliant"""
