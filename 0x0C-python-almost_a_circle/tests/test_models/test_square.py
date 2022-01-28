@@ -2,10 +2,40 @@
 """
 import unittest
 from models.square import Square
+import pep8
 
 
 class TestSquare(unittest.TestCase):
     """Testing Square methods"""
+
+    def test_pep8_rectangle(self):
+            """
+            Test that models/square.py is pep8 compliant.
+            """
+            pep8style = pep8.StyleGuide(quiet=True)
+            result = pep8style.check_files(['models/square.py'])
+            self.assertEqual(result.total_errors, 0,
+                             "Found code style errors (and warnings).")
+
+    def test_pep8_test_base(self):
+        """
+        Test that tests/test_models/test_square.py is pep8 compliant
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstring(self):
+        """
+        Tests for the module docstring
+        """
+        self.assertTrue(len(Square.__doc__) >= 1)
+
+    def test_class_docstring(self):
+        """
+        Tests for the Base class docstring"""
+        self.assertTrue(len(Square.__doc__) >= 1)
 
     @classmethod
     def setUpClass(cls):

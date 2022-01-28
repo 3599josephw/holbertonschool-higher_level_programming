@@ -1,12 +1,42 @@
 """Unittests for the Base class
 """
-from curses.textpad import rectangle
 import unittest
 from models.base import Base
+import pep8
 
 
 class TestBaseMethods(unittest.TestCase):
     """Testing Base methods"""
+
+    def test_pep8_base(self):
+        """
+        Test that models/base.py is pep8 compliant.
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_pep8_test_base(self):
+        """
+        Test that tests/test_models/test_base.py is pep8 compliant
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstring(self):
+        """
+        Tests for the module docstring
+        """
+        self.assertTrue(len(Base.__doc__) >= 1)
+
+    def test_class_docstring(self):
+        """
+        Tests for the Base class docstring"""
+        self.assertTrue(len(Base.__doc__) >= 1)
+
     def test_init(self):
         b1 = Base()
         self.assertEqual(b1.id, 1)
@@ -16,6 +46,8 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(b3.id, -1)
         b4 = Base(None)
         self.assertEqual(b4.id, 2)
+        with self.assertRaises(TypeError):
+            b = Base(1, 1)
 
     def test_to_json_string(self):
         test_dict = {'x': 2, 'y': 8, 'width': 10, 'height': 7}

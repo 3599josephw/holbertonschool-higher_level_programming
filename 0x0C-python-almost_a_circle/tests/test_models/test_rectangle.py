@@ -2,10 +2,40 @@
 """
 import unittest
 from models.rectangle import Rectangle
+import pep8
 
 
 class TestRectangle(unittest.TestCase):
     """Testing Rectangle methods"""
+
+    def test_pep8_rectangle(self):
+            """
+            Test that models/rectanlge.py is pep8 compliant.
+            """
+            pep8style = pep8.StyleGuide(quiet=True)
+            result = pep8style.check_files(['models/rectangle.py'])
+            self.assertEqual(result.total_errors, 0,
+                             "Found code style errors (and warnings).")
+
+    def test_pep8_test_base(self):
+        """
+        Test that tests/test_models/test_rectangle.py is pep8 compliant
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_rectangle.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstring(self):
+        """
+        Tests for the module docstring
+        """
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
+
+    def test_class_docstring(self):
+        """
+        Tests for the Base class docstring"""
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
 
     @classmethod
     def setUpClass(cls):
