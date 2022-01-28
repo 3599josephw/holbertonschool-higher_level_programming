@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Unittests for the Square Class
-"""
 import unittest
 from models.square import Square
 from models.base import Base
 import pep8
+"""Unittests for the Square Class
+"""
 
 
 class TestSquare(unittest.TestCase):

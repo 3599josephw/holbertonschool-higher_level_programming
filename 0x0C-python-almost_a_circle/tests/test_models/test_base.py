@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Unittests for the Base class
-"""
 import unittest
 from models.base import Base
 import pep8
+"""Unittests for the Base class
+"""
 
 
 class TestBaseMethods(unittest.TestCase):

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Unittests for the Rectangle Class
-"""
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
 import pep8
+"""Unittests for the Rectangle Class
+"""
 
 
 class TestRectangle(unittest.TestCase):
