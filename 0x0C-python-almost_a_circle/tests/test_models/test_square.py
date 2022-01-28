@@ -156,3 +156,6 @@ class TestSquare(unittest.TestCase):
         list_Squares_output = Square.load_from_file()
         self.assertEqual(str(list_Squares_output[0]),
                          '[Square] (8) 7/2 - 10')
+
+if __name__ == '__main__':
+    unittest.main()

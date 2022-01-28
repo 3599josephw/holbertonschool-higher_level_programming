@@ -167,3 +167,6 @@ class TestRectangle(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(list_rectangles_output[0]),
                          '[Rectangle] (6) 2/8 - 10/7')
+
+if __name__ == '__main__':
+    unittest.main()

@@ -90,3 +90,6 @@ class TestBaseMethods(unittest.TestCase):
         json_string = '[{"x": 2, "y": 8, "width": 10, "height": 7}]'
         output = Base.from_json_string(json_string)
         self.assertEqual(output, [{"x": 2, "y": 8, "width": 10, "height": 7}])
+
+if __name__ == '__main__':
+    unittest.main()
