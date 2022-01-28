@@ -34,12 +34,20 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(len(Square.__doc__) >= 1)
 
     def test_class_docstring(self):
-        """
-        Tests for the Base class docstring"""
+        """Tests for the Base class docstring"""
         self.assertTrue(len(Square.__doc__) >= 1)
+
+    def test_func_docstrings(self):
+        """Function docstrings"""
+        self.assertTrue(len(Square.__init__.__doc__) >= 1)
+        self.assertTrue(len(Square.size.__doc__) >= 1)
+        self.assertTrue(len(Square.__str__.__doc__) >= 1)
+        self.assertTrue(len(Square.update.__doc__) >= 1)
+        self.assertTrue(len(Square.to_dictionary.__doc__) >= 1)
 
     @classmethod
     def setUpClass(cls):
+        """Sets __nb_object to 0 and creates objects to be tested"""
         Base.clear()
         cls.s1 = Square(10)
         cls.s2 = Square(2, 2, 2, -7)
@@ -56,6 +64,7 @@ class TestSquare(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        """Deletes the objects"""
         del cls.s1
         del cls.s2
         del cls.s3
@@ -68,9 +77,9 @@ class TestSquare(unittest.TestCase):
         del cls.s10
         del cls.s12
         del cls.s13
-        Base._nb_objects = 0
 
     def test_task_two(self):
+        """tests ids and values"""
         self.assertEqual(self.s1.id, 1)
         self.assertEqual(self.s2.id, -7)
 
@@ -88,15 +97,19 @@ class TestSquare(unittest.TestCase):
             s11 = Square(1, 2, -6)
 
     def test_area(self):
+        """tests area"""
         self.assertEqual(self.s3.area(), 49)
 
     def test_display(self):
+        """tests display"""
         self.assertEqual(self.s4.display(), None)
 
     def test_str(self):
+        """tests __str__"""
         self.assertEqual(str(self.s5), "[Square] (12) 6/2 - 4")
 
     def test_update(self):
+        """tests update"""
         self.s6.update(89)
         self.assertEqual(self.s6.id, 89)
         self.s6.update(89, 2, 3, 4)
@@ -110,6 +123,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s6.id, 11)
 
     def test_to_dictionary(self):
+        """test to_dictionary"""
         s7_dict = self.s7.to_dictionary()
         self.assertEqual(s7_dict, {'x': 1, 'y': 9, 'id': 1,
                                    'size': 2})
@@ -118,12 +132,14 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(Square.to_json_string(None), "[]")
 
     def test_save_to_file(self):
+        """tests save_to_file"""
         Square.save_to_file([self.s8, self.s9])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[{"id": 2, "size": 10, "x": 7, "y": 2}, {"id": 3,\
  "size": 2, "x": 0, "y": 0}]')
 
     def test_create(self):
+        """tests create"""
         s10_dict = self.s10.to_dictionary()
         s11 = Square.create(**s10_dict)
         self.assertEqual(s11.id, 4)
@@ -133,6 +149,7 @@ class TestSquare(unittest.TestCase):
         self.assertNotEqual(self.s10, s11)
 
     def test_load_from_file(self):
+        """tests load_from_string"""
         list_Squares_input = [self.s12, self.s13]
         Square.save_to_file(list_Squares_input)
         list_Squares_output = Square.load_from_file()

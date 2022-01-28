@@ -7,8 +7,8 @@ from models.base import Base
 class Rectangle(Base):
     """Rectangle class inheriting from Base
     """
-    # Check for correct initialization input
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Check for correct initialization input"""
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
@@ -31,23 +31,24 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    # Returns the area of the rectangle
     def area(self):
+        """Returns the area of the rectangle"""
         return self.__height * self.__width
 
-    # Prints out a rectangle made of #
     def display(self):
+        """Prints out a rectangle made of #"""
         print("\n" * self.__y, end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
             print("#" * self.__width)
 
-    # Overriding the __str__ method
     def __str__(self):
+        """Overriding the __str__ method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".\
             format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
+        """Updates an object's attributes"""
         flag = 0
         if args is not None:
             flag = 1
@@ -65,32 +66,35 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-    # Returns a dictionary representation of the rectangle's attributes
     def to_dictionary(self):
+        """Returns a dictionary representation of the rectangle's attributes"""
         atts = {'id': self.id, 'width': self.width, 'height': self.height,
                 'x': self.x, 'y': self.y}
         return atts
 
-    # Getters for all the attributes
     @property
     def width(self):
+        """Getter for width"""
         return self.__width
 
     @property
     def height(self):
+        """Getter for height"""
         return self.__height
 
     @property
     def x(self):
+        """Getter for x"""
         return self.__x
 
     @property
     def y(self):
+        """Getter for x"""
         return self.__y
 
-    # Setters for all the attributes
     @width.setter
     def width(self, value):
+        """Setter for width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -99,6 +103,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """Setter for height"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -107,6 +112,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        """Setter for x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -115,6 +121,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        """Setter for y"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:

@@ -7,17 +7,17 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """Creates a Square based off the Rectangle class
     """
-    # Initializes based off Rectangle
     def __init__(self, size, x=0, y=0, id=None):
+        """Initializes based off Rectangle"""
         super().__init__(size, size, x, y, id)
 
-    # Print method
     def __str__(self):
+        """Print method"""
         return "[Square] ({}) {}/{} - {}".\
             format(self.id, self.x, self.y, self.width)
 
-    # Update method for the object's attributes
     def update(self, *args, **kwargs):
+        """Update method for the object's attributes"""
         flag = 0
         if args is not None:
             flag = 1
@@ -33,18 +33,19 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-    # Returns a dictionary representation of the square's attributes
     def to_dictionary(self):
+        """Returns a dictionary representation of the square's attributes"""
         atts = {'id': self.id, 'size': self.size,
                 'x': self.x, 'y': self.y}
         return atts
 
-    # Getter & Setter
     @property
     def size(self):
+        """Getter"""
         return super().width
 
     @size.setter
     def size(self, value):
+        """Setter"""
         self.width = value
         self.height = value

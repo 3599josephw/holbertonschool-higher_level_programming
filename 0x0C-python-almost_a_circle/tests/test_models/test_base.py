@@ -33,12 +33,23 @@ class TestBaseMethods(unittest.TestCase):
         self.assertTrue(len(Base.__doc__) >= 1)
 
     def test_class_docstring(self):
-        """
-        Tests for the Base class docstring"""
+        """Tests for the Base class docstring"""
         self.assertTrue(len(Base.__doc__) >= 1)
+
+    def test_func_docstrings(self):
+        """
+        Tests docstrings functions
+        """
+        self.assertTrue(len(Base.__init__.__doc__) >= 1)
+        self.assertTrue(len(Base.to_json_string.__doc__) >= 1)
+        self.assertTrue(len(Base.from_json_string.__doc__) >= 1)
+        self.assertTrue(len(Base.save_to_file.__doc__) >= 1)
+        self.assertTrue(len(Base.create.__doc__) >= 1)
+        self.assertTrue(len(Base.load_from_file.__doc__) >= 1)
 
     @classmethod
     def setUpClass(cls):
+        """Sets __nb_object to 0 and creates objects to be tested"""
         Base.clear()
         cls.b1 = Base()
         cls.b2 = Base(12)
@@ -47,12 +58,14 @@ class TestBaseMethods(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        """Deletes the objects set up"""
         del cls.b1
         del cls.b2
         del cls.b3
         del cls.b4
 
     def test_init(self):
+        """checks base IDs"""
         self.assertEqual(self.b1.id, 1)
         self.assertEqual(self.b2.id, 12)
         self.assertEqual(self.b3.id, -1)
@@ -62,6 +75,7 @@ class TestBaseMethods(unittest.TestCase):
             b = Base(1, 1)
 
     def test_to_json_string(self):
+        """tests to_json_string function"""
         test_dict = {'x': 2, 'y': 8, 'width': 10, 'height': 7}
         json_dict = Base.to_json_string([test_dict])
         self.assertEqual(type(json_dict), str)
@@ -71,6 +85,7 @@ class TestBaseMethods(unittest.TestCase):
 10, "height": 7}]')
 
     def test_from_json_string(self):
+        """Tests from_json_string function"""
         json_string = '[{"x": 2, "y": 8, "width": 10, "height": 7}]'
         output = Base.from_json_string(json_string)
         self.assertEqual(output, [{"x": 2, "y": 8, "width": 10, "height": 7}])

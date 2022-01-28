@@ -12,27 +12,29 @@ class Base:
 
     @classmethod
     def clear(cls):
+        """Sets the variable to 0 for unittesting"""
         Base.__nb_object = 0
 
     def __init__(self, id=None):
+        """inits the class"""
         if id is not None:
             self.id = id
         else:
             Base.__nb_object += 1
             self.id = Base.__nb_object
 
-    # Takes a dictionary and returns a list in json format
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Takes a dictionary and returns a list in json format"""
         if list_dictionaries is None:
             return "[]"
         if len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    # Saves the attributes of objects into a json file
     @classmethod
     def save_to_file(cls, list_objs):
+        """Saves the attributes of objects into a json file"""
         json_list = []
 
         if list_objs is not None:
@@ -42,21 +44,21 @@ class Base:
         with open(cls.__name__ + ".json", 'w') as f:
             f.write(Base.to_json_string(json_list))
 
-    # Converts a json string into a list
     @staticmethod
     def from_json_string(json_string):
+        """Converts a json string into a list"""
         return json.loads(json_string)
 
-    # Creates an object based on a given dictionary
     @classmethod
     def create(cls, **dictionary):
+        """Creates an object based on a given dictionary"""
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
-
+        """Loads from file"""
         if not os.path.exists(cls.__name__ + ".json"):
             return []
 
