@@ -11,12 +11,12 @@ class TestSquare(unittest.TestCase):
     """Testing Square methods"""
 
     def test_pep8_rectangle(self):
-            """
-            Test that models/square.py is pep8 compliant.
-            """
-            pep8style = pep8.StyleGuide(quiet=True)
-            result = pep8style.check_files(['models/square.py'])
-            self.assertEqual(result.total_errors, 0,
+        """
+        Test that models/square.py is pep8 compliant.
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/square.py'])
+        self.assertEqual(result.total_errors, 0,
                              "Found code style errors (and warnings).")
 
     def test_pep8_test_base(self):

@@ -11,12 +11,12 @@ class TestRectangle(unittest.TestCase):
     """Testing Rectangle methods"""
 
     def test_pep8_rectangle(self):
-            """
-            Test that models/rectanlge.py is pep8 compliant.
-            """
-            pep8style = pep8.StyleGuide(quiet=True)
-            result = pep8style.check_files(['models/rectangle.py'])
-            self.assertEqual(result.total_errors, 0,
+        """
+        Test that models/rectanlge.py is pep8 compliant.
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0,
                              "Found code style errors (and warnings).")
 
     def test_pep8_test_base(self):
