@@ -37,15 +37,33 @@ class TestBaseMethods(unittest.TestCase):
         Tests for the Base class docstring"""
         self.assertTrue(len(Base.__doc__) >= 1)
 
+    def tearDown(self):
+        """
+        Reset the Base._nb_objects to 0
+        """
+        Base._nb_objects = 0
+
+    @classmethod
+    def setUpClass(cls):
+        cls.b1 = Base()
+        cls.b2 = Base(12)
+        cls.b3 = Base(-1)
+        cls.b4 = Base(None)
+
+    @classmethod
+    def tearDownClass(cls):
+        del cls.b1
+        del cls.b2
+        del cls.b3
+        del cls.b4
+        Base._nb_objects = 0
+
     def test_init(self):
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
-        b2 = Base(12)
-        self.assertEqual(b2.id, 12)
-        b3 = Base(-1)
-        self.assertEqual(b3.id, -1)
-        b4 = Base(None)
-        self.assertEqual(b4.id, 2)
+        self.assertEqual(self.b1.id, 1)
+        self.assertEqual(self.b2.id, 12)
+        self.assertEqual(self.b3.id, -1)
+        self.assertEqual(self.b4.id, 2)
+
         with self.assertRaises(TypeError):
             b = Base(1, 1)
 
