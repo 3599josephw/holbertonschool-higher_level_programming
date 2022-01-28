@@ -35,8 +35,7 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
     def test_class_docstring(self):
-        """
-        Tests for the Base class docstring"""
+        """Tests for the Base class docstring"""
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
     def test_func_docstrings(self):
