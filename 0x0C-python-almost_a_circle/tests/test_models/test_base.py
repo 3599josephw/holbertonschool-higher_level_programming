@@ -2,7 +2,7 @@
 import unittest
 from models.base import Base
 import pep8
-"""Unittests for the Base class
+"""Unittests for Base class
 """
 
 
