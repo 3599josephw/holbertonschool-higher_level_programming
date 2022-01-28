@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Unittests for the Square Class
 """
 import unittest
