@@ -38,14 +38,9 @@ class TestRectangle(unittest.TestCase):
         Tests for the Base class docstring"""
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
-    def tearDown(self):
-        """
-        Reset the Base._nb_objects to 0
-        """
-        Base._nb_objects = 0
-
     @classmethod
     def setUpClass(cls):
+        Base.clear()
         cls.r1 = Rectangle(10, 5)
         cls.r2 = Rectangle(2, 2, 2, 2, -7)
         cls.r3 = Rectangle(7, 5, 6, 7, 8)
@@ -73,7 +68,6 @@ class TestRectangle(unittest.TestCase):
         del cls.r10
         del cls.r12
         del cls.r13
-        Base._nb_objects = 0
 
     def test_task_two(self):
         self.assertEqual(self.r1.id, 1)

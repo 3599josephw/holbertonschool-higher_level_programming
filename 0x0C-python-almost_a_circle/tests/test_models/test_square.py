@@ -38,14 +38,9 @@ class TestSquare(unittest.TestCase):
         Tests for the Base class docstring"""
         self.assertTrue(len(Square.__doc__) >= 1)
 
-    def tearDown(self):
-        """
-        Reset the Base._nb_objects to 0
-        """
-        Base._nb_objects = 0
-
     @classmethod
     def setUpClass(cls):
+        Base.clear()
         cls.s1 = Square(10)
         cls.s2 = Square(2, 2, 2, -7)
         cls.s3 = Square(7, 5, 6, 7)
