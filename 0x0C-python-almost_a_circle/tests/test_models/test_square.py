@@ -86,16 +86,23 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s2.id, -7)
 
         with self.assertRaises(TypeError):
-            s3 = Square("hello", 4)
-            s4 = Square(4, "hello")
-            s5 = Square(10, 10, 5.5)
+            s3 = Square("1")
+        with self.assertRaises(TypeError):
+            s4 = Square(4, "1")
+        with self.assertRaises(TypeError):
+            s5 = Square(10, 10, "3")
+        with self.assertRaises(TypeError):
             s6 = Square(64, 85, True)
 
         with self.assertRaises(ValueError):
-            s7 = Square(0, 5)
+            s7 = Square(0)
+        with self.assertRaises(ValueError):
             s8 = Square(7, -1)
-            s9 = Square(9, -4)
+        with self.assertRaises(ValueError):
+            s9 = Square(-1)
+        with self.assertRaises(ValueError):
             s10 = Square(-5, 6)
+        with self.assertRaises(ValueError):
             s11 = Square(1, 2, -6)
 
     def test_area(self):
