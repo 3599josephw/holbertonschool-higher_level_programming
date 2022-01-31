@@ -92,12 +92,19 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r3 = Rectangle("hello", 4)
+        with self.assertRaises(TypeError):
             r4 = Rectangle(4, "hello")
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, 5.5, 6)
+        with self.assertRaises(TypeError):
             r6 = Rectangle(64, 85, 3, True)
+        with self.assertRaises(TypeError):
             r13 = Rectangle("1", 2)
+        with self.assertRaises(TypeError):
             r14 = Rectangle(1, "2")
+        with self.assertRaises(TypeError):
             r15 = Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
             r16 = Rectangle(1, 2, 3, "4")
 
         with self.assertRaises(ValueError):
