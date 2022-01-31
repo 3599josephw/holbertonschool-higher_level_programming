@@ -95,14 +95,18 @@ class TestRectangle(unittest.TestCase):
             r4 = Rectangle(4, "hello")
             r5 = Rectangle(10, 10, 5.5, 6)
             r6 = Rectangle(64, 85, 3, True)
+            r13 = Rectangle("1", 2)
+            r14 = Rectangle(1, "2")
+            r15 = Rectangle(1, 2, "3")
+            r16 = Rectangle(1, 2, 3, "4")
 
         with self.assertRaises(ValueError):
-            r7 = Rectangle(0, 5)
-            r8 = Rectangle(7, 0)
-            r9 = Rectangle(9, -4)
-            r10 = Rectangle(-5, 6)
-            r11 = Rectangle(1, 2, -6, 7)
-            r12 = Rectangle(3, 4, 7, -6)
+            r7 = Rectangle(0, 2)
+            r8 = Rectangle(1, 0)
+            r9 = Rectangle(1, -2)
+            r10 = Rectangle(-1, 2)
+            r17 = Rectangle(1, 2, -3)
+            r11 = Rectangle(1, 2, 3, -4)
 
     def test_area(self):
         """tests the area"""
