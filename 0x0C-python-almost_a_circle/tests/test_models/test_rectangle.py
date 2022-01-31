@@ -102,10 +102,15 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             r7 = Rectangle(0, 2)
+        with self.assertRaises(ValueError):
             r8 = Rectangle(1, 0)
+        with self.assertRaises(ValueError):
             r9 = Rectangle(1, -2)
+        with self.assertRaises(ValueError):
             r10 = Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
             r17 = Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
             r11 = Rectangle(1, 2, 3, -4)
 
     def test_area(self):
