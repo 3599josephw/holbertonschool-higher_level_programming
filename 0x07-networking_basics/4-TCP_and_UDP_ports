@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#Shows all listening ports
-sudo netstat -tunlp
