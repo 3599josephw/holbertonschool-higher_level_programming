@@ -21,3 +21,5 @@ if __name__ == "__main__":
 
     for item in states:
         print("{}: {}".format(item.id, item.name))
+
+    local_session.close()
