@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all rows from the states table starting with N"""
+"""List all rows from the states table starting with N"""
 
 if __name__ == "__main__":
 
@@ -14,9 +14,7 @@ if __name__ == "__main__":
     cur.execute("""SELECT * FROM states WHERE name
                 LIKE 'N%' ORDER BY states.id""")
 
-    rows = cur.fetcahll()
-
-    for row in rows:
+    for row in cur.fetchall():
         print(row)
 
     db.close()
