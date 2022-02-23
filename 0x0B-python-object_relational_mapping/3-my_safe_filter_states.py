@@ -15,7 +15,9 @@ if __name__ == "__main__":
     cur.execute("""SELECT * FROM states
     WHERE name = '%s'""" % sys.argv[4])
 
-    for row in cur.fetchall():
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
 
+    cur.close()
     db.close()
