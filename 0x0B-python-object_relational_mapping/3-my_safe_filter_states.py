@@ -1,18 +1,21 @@
 #!/usr/bin/python3
 """Lists rows from states matching user input
 """
-import MySQLdb
-import sys
 
-db = MySQLdb.connect(host="localhost", port=3306,
-                     user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+if __name__ == "__main__":
 
-cur = db.cursor()
+    import MySQLdb
+    import sys
 
-cur.execute("""SELECT * FROM states
-WHERE name = '%s'""" % sys.argv[4])
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
-for row in cur.fetchall():
-    print(row)
+    cur = db.cursor()
 
-db.close()
+    cur.execute("""SELECT * FROM states
+    WHERE name = '%s'""" % sys.argv[4])
+
+    for row in cur.fetchall():
+        print(row)
+
+    db.close()
