@@ -23,6 +23,4 @@ if __name__ == "__main__":
     session.add(new)
     session.commit()
 
-    states = session.query(State).filter(State.name.contains("Louisiana"))
-
-    print("{}".format(states[0].id))
+    print("{}".format(new.id))
