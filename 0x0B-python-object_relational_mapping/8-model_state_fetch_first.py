@@ -14,16 +14,12 @@ if __name__ == "__main__":
                     sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker()
-    local_session = Session(bind=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    states = local_session.query(State).filter(State.id == 1)
-
-    count = states.count()
-
-    if count > 0:
-        print("{}: {}".format(states[0].id, states[0].name))
+    states = session.query(State).order_by(State.id).first()
+    if (states):
+        print("{}: {}".format(states.id, states.name))
     else:
         print("Nothing")
-
-    local_session.close()
+    session.close()
