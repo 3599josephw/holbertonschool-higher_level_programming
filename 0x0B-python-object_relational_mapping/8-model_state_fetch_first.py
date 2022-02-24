@@ -9,7 +9,7 @@ if __name__ == "__main__":
     from sqlalchemy import (create_engine)
     from sqlalchemy.orm import sessionmaker, Session
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost\
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306\
         /{}'.format(sys.argv[1], sys.argv[2],
                     sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
@@ -25,3 +25,5 @@ if __name__ == "__main__":
         print("{}: {}".format(states[0].id, states[0].name))
     else:
         print("Nothing")
+        
+    local_session.close()
