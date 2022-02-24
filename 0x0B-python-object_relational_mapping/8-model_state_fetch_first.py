@@ -25,5 +25,5 @@ if __name__ == "__main__":
         print("{}: {}".format(states[0].id, states[0].name))
     else:
         print("Nothing")
-        
+
     local_session.close()
