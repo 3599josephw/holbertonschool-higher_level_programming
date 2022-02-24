@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database
+"""Gets the first state from the table om the hntn_0e_usa
 """
 
 if __name__ == "__main__":
