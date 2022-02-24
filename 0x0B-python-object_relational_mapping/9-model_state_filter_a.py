@@ -14,8 +14,8 @@ if __name__ == "__main__":
                                     sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker()
-    local_session = Session(bind=engine)
+    Session = sessionmaker(bind=engine)
+    local_session = Session()
 
     states = local_session.query(State).filter(State.name.contains('a'))
 
