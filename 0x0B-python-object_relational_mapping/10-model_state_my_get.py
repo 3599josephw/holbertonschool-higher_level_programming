@@ -17,14 +17,11 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    states = session.query(State).filter(State.name.contains(sys.argv[4]))\
-            .order_by(State.id).all()
-
-    count = states.count()
-
-    if count > 0:
-        print("{}".format(states[0].id))
+    states = session.query(State).filter(State.name.contains(format(
+                                sys.argv[4]))).order_by(State.id).all()
+    if (states):
+        for item in states:
+            print("{}".format(item.id))
     else:
         print("Not found")
-
     session.close()
