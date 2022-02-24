@@ -15,8 +15,8 @@ if __name__ == "__main__":
                     sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker()
-    session = Session(bind=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     new = State(name='Louisiana')
 
