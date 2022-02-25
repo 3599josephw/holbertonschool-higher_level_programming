@@ -21,4 +21,4 @@ if __name__ == "__main__":
             .order_by(State.id):
         print("{}: {}".format(state.id, state.name))
 
-        local_session.close()
+    local_session.close()
