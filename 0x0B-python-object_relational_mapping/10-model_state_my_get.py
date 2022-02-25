@@ -14,8 +14,8 @@ if __name__ == "__main__":
                     sys.argv[3]))
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker()
-    session = Session(bind=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     search = [format(sys.argv[4])]
 
