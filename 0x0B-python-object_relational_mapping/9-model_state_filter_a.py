@@ -18,7 +18,6 @@ if __name__ == "__main__":
     local_session = Session()
 
     for state in local_session.query(State).filter(State.name.contains('a'))\
-            .order_by(State.id):
+                                      .order_by(State.id):
         print("{}: {}".format(state.id, state.name))
-
     local_session.close()
