@@ -11,8 +11,9 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    cur.execute("""SELECT cities.name FROM cities INNER JOIN
-states ON cities.state_id = states.id AND states.name = '%s'""" % sys.argv[4])
+    cur.execute("""SELECT cities.name FROM cities LEFT JOIN
+states ON cities.state_id = states.id WHERE
+states.name LIKE %s""", [format(sys.argv[4])])
 
     result = cur.fetchall()
     flag = 1
