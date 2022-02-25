@@ -17,7 +17,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     local_session = Session()
 
-    for state in local_session.query(State).filter(State.name.contains('a'))\
-                                      .order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    for state in local_session.query(State).order_by(State.id):
+        if "a" in state.name:
+            print("{}: {}".format(state.id, state.name))
+        else:
+            pass
+
     local_session.close()
