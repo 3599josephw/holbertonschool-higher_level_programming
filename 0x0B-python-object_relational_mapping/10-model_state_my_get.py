@@ -17,8 +17,10 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    states = session.query(State).filter(State.name.contains([format(
-                                sys.argv[4])])).order_by(State.id).all()
+    search = [format(sys.argv[4])]
+
+    states = session.query(State).filter(State.name.contains(
+                                search)).order_by(State.id).all()
     if (states):
         for item in states:
             print("{}".format(item.id))
