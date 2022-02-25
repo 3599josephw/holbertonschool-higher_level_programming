@@ -9,7 +9,7 @@ if __name__ == "__main__":
     from sqlalchemy import (create_engine)
     from sqlalchemy.orm import sessionmaker, Session
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost\
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306\
                         /{}'.format(sys.argv[1], sys.argv[2],
                                     sys.argv[3]))
     Base.metadata.create_all(engine)
@@ -17,10 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     local_session = Session()
 
-    for state in local_session.query(State).order_by(State.id):
-        if "a" in state.name:
-            print("{}: {}".format(state.id, state.name))
-        else:
-            pass
-
+    for state in local_session.query(State).filter(State.name.contains('a'))\
+            .order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
     local_session.close()
