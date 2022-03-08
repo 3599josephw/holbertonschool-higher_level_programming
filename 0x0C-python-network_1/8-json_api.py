@@ -13,10 +13,9 @@ if __name__ == '__main__':
     payload = {'q': tmp}
     r = requests.post('http://0.0.0.0:5000/search_user', data=payload)
 
-    if len(r) == 0:
-        print("No result")
-    else:
-        try:
-            jsn = r.json()
-        except:
-            print("Not a valid JSON")
+    try:
+        jsn = r.json()
+        if len(r) == 0:
+            print("No result")
+    except:
+        print("Not a valid JSON")
