@@ -3,6 +3,7 @@
 
 if __name__ == '__main__':
     import requests
+    from requests.auth import HTTPBasicAuth
     import sys
 
     token = sys.argv[2]
