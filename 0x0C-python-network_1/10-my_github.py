@@ -10,7 +10,5 @@ if __name__ == '__main__':
     usr = sys.argv[1]
     url = "https://api.github.com/user"
 
-    params = {'state': 'open'}
-
-    r = requests.get(url, auth=HTTPBasicAuth(usr, token), params=params).json()
+    r = requests.get(url, auth=HTTPBasicAuth(usr, token)).json()
     print(r.get('id'))
