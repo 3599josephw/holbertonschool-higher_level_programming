@@ -17,5 +17,7 @@ if __name__ == '__main__':
         jsn = r.json()
         if len(r) == 0:
             print("No result")
+        else:
+            print(jsn['id'], jsn['name'])
     except:
         print("Not a valid JSON")
