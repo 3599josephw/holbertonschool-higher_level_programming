@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     try:
         jsn = r.json()
-        if len(r) == 0:
+        if len(jsn) == 0:
             print("No result")
         else:
             print("[{}] {}".format(jsn['id'], jsn['name']))
