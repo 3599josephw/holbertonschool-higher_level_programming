@@ -7,10 +7,10 @@ if __name__ == '__main__':
     import sys
 
     token = sys.argv[2]
-    user = sys.argv[1]
+    usr = sys.argv[1]
     url = "https://api.github.com/user"
 
     params = {'state': 'open'}
 
-    r = requests.get(url, auth=HTTPBasicAuth(user, token), params=params).json()
+    r = requests.get(url, auth=HTTPBasicAuth(usr, token), params=params).json()
     print(r.get('id'))
