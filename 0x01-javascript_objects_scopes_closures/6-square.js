@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const OtherSquare = require('./5-square.js')
+const OtherSquare = require('./5-square.js');
 
 class Square extends OtherSquare {
   constructor (size) {
